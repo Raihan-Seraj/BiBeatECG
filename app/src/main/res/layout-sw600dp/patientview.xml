@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+    android:contextClickable="true"
+    android:elevation="@dimen/abc_action_bar_content_inset_material"
+    android:backgroundTint="#fffdfd">
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="210dp"
+        android:layout_height="90dp"
+        android:text="Start"
+        android:textSize="30dp"
+        android:id="@+id/startbutton"
+        android:layout_weight="0.08"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="startbuttonclicked" />
+
+    <Spinner
+
+        android:layout_width="200dp"
+        android:layout_height="85dp"
+        android:id="@+id/selectcenterspinner"
+        android:spinnerMode="dropdown"
+        android:layout_marginLeft="37dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="3dp"
+        android:layout_toRightOf="@+id/nextleadbutton"
+        android:layout_toEndOf="@+id/nextleadbutton"
+        android:background="#979797"
+        android:backgroundTint="#c9c9c9"
+        android:clickable="true"
+        android:contextClickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:importantForAccessibility="auto"
+        android:nestedScrollingEnabled="true"
+        android:transitionGroup="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_lead"
+        android:id="@+id/selectleadtextView"
+        android:textSize="20dp"
+        android:enabled="true"
+        android:textColor="#000000"
+        android:layout_marginLeft="87dp"
+        android:layout_above="@+id/selectcenterspinner"
+        android:layout_toRightOf="@+id/nextleadbutton"
+        android:layout_toEndOf="@+id/nextleadbutton" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="210dp"
+        android:layout_height="90dp"
+        android:text="@string/next_lead"
+        android:textSize="25dp"
+        android:id="@+id/nextleadbutton"
+
+        android:onClick="nextbuttonclicked"
+
+
+        android:layout_marginLeft="37dp"
+        android:layout_marginStart="37dp"
+        android:layout_alignTop="@+id/startbutton"
+        android:layout_toRightOf="@+id/startbutton"
+        android:layout_toEndOf="@+id/startbutton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:text="@string/combinetrace"
+        android:textSize="20dp"
+        android:id="@+id/combinedecgtrace"
+        android:layout_alignTop="@+id/nextleadbutton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"/>
+
+    <SurfaceView
+
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/ecggraph"
+        android:visibility="visible"
+        android:layout_alignLeft="@+id/selectcenterspinner"
+        android:layout_alignStart="@+id/selectcenterspinner" />
+    <com.androidplot.xy.XYPlot
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:id="@+id/ecggraphfootprint"
+        androidplot.rangeLabel="25mm/s"
+        androidplot.domainLabel="10mm/mv"
+        android:visibility="visible"
+        android:layout_alignRight="@+id/nextleadbutton" />
+
+
+</RelativeLayout>
+

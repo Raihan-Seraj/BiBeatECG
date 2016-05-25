@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">ECG</string>
+    <string name="action_settings">Settings</string>
+    <string name="select_lead">Select Lead
+    </string>
+    <string-array name="lead_choices" >
+
+        <item>Lead I</item>
+        <item>Lead II</item>
+        <item>Lead III</item>
+        <item>Lead aVR</item>
+        <item>Lead aVL</item>
+        <item>Lead aVF</item>
+        <item>Lead  V1</item>
+        <item>Lead  V2</item>
+        <item>Lead  V3</item>
+        <item>Lead  V4</item>
+        <item>Lead  V5</item>
+        <item>Lead  V6</item>
+        <item>Extended Lead II</item>
+
+    </string-array>
+    <string name="acquire_data_radio">Acquire Data Only</string>
+    <string name="receive_data_radio">Receive Data Only </string>
+    <string name="acquire_and_send_data_radio">Acquire and Send Data</string>
+    <string name="select_data_acquisition">Select one of these two options</string>
+    <string name="next_lead">Next Lead</string>
+    <string name="ecg_textView">ECG</string>
+    <string name="next_btn">Next</string>
+    <string name="doctor_data_acq">Select the option</string>
+    <string name="enterpatientinfo">Enter Patient Information</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="Sex">Sex:</string>
+    <string name="saveExcel">Save </string>
+    <string name="dataacq">Select Data Acquisition</string>
+    <string name="settingsstring">Settings</string>
+    <string name="optionsstring">Options</string>
+    <string name="settingsgain">Gain</string>
+    <string name="settingshorizontalscaling">Horizontal Scaling</string>
+    <string name="settings50hzfilter">50 Hz Filter </string>
+    <string name="combinetrace">Combine ECG Trace</string>
+    <string-array name="select_center" >
+
+        <item>Center 1</item>
+        <item>Center 2</item>
+        <item>Center 3</item>
+        <item>Center 4</item>
+        <item>Center 5</item>
+        <item>Center 6</item>
+        <item>Center 7</item>
+        <item>Center 8</item>
+        <item>Center 9</item>
+        <item>Center 10</item>
+        <item>Center 11</item>
+        <item>Center 12</item>
+        <item>Center 13</item>
+
+    </string-array>
+    <string name="select_center">Select Center</string>
+</resources>

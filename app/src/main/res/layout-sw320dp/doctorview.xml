@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+    android:contextClickable="true">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        android:layout_alignBottom="@+id/nextleadbutton"
+        android:layout_centerHorizontal="true">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignLeft="@+id/linearLayout"
+            android:layout_alignStart="@+id/linearLayout">
+
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="269dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignLeft="@+id/linearLayout"
+            android:layout_alignStart="@+id/linearLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_center"
+                android:textSize="30dp"
+                android:enabled="true"
+                android:textColor="#000000"
+                android:id="@+id/selectleadtextview"
+
+                />
+
+
+        </LinearLayout>
+
+        <Spinner
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/selectcenterspinner"
+            android:spinnerMode="dropdown"
+            android:textSize="28dp"
+            />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignLeft="@+id/linearLayout"
+            android:layout_alignStart="@+id/linearLayout">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="211dp"
+        android:layout_height="wrap_content"
+        android:text="@string/next_lead"
+        android:textSize="25dp"
+        android:id="@+id/nextleadbutton"
+        android:onClick="nextbuttonclicked"
+        android:layout_marginRight="104dp"
+        android:layout_marginEnd="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="199dp"
+        android:layout_height="65dp"
+        android:text="Select Receiver"
+        android:textSize="30dp"
+        android:id="@+id/startbutton"
+        android:layout_above="@+id/nextleadbutton"
+        android:layout_alignLeft="@+id/nextleadbutton"
+        android:layout_alignStart="@+id/nextleadbutton"
+        android:layout_alignRight="@+id/nextleadbutton"
+        android:layout_alignEnd="@+id/nextleadbutton" />
+
+
+</RelativeLayout>
+

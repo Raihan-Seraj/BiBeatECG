@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/id_15mmsec" android:title="15mm/sec"></item>
+        <item android:id="@+id/id_20mmsec" android:title="20mm/sec "></item>
+        <item android:id="@+id/id_25mmsec" android:title="25mm/sec "></item>
+        <item android:id="@+id/id_50mmsec" android:title="50mm/sec "></item>
+
+    </group>
+</menu>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/whitebackground">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/patientid"
+        android:editable="true"
+        android:hint="Patient ID"
+        android:textSize="20dp"
+        android:autoText="true"
+        android:clickable="true"
+        android:contextClickable="true"
+        android:enabled="true"
+        android:textColor="#000000"
+        android:textColorHint="#38121212"
+        android:layout_above="@+id/textView4"
+        android:layout_alignLeft="@+id/patientname" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enterpatientinfo"
+        android:id="@+id/textView3"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_toRightOf="@+id/imageView3"
+        android:layout_alignRight="@+id/patientname" />
+    <EditText
+        android:id="@+id/patientname"
+        android:layout_height="wrap_content"
+        android:hint="Enter Patient Name"
+        android:textSize="20dp"
+        android:inputType="textPersonName"
+        android:layout_width="302dp"
+        android:layout_gravity="center_horizontal"
+        android:enabled="true"
+        android:editable="true"
+        android:autoText="true"
+        android:selectAllOnFocus="false"
+        android:textColor="#000000"
+        android:textColorHint="#38121212"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_toRightOf="@+id/textView4">
+
+    </EditText>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Sex"
+        android:textSize="25dp"
+        android:id="@+id/sextextview"
+        android:textColorHint="#d04000ff"
+        android:textColor="#000000"
+        android:layout_alignBottom="@+id/malefemaleradiogroup"
+        android:layout_alignLeft="@+id/patientname"
+        android:layout_alignStart="@+id/patientname" />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/malefemaleradiogroup"
+        android:layout_alignTop="@+id/savebutton"
+        android:layout_toRightOf="@+id/sextextview"
+        android:layout_toEndOf="@+id/sextextview">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/male"
+            android:textSize="20dp"
+            android:id="@+id/maleradiobutton"
+            android:layout_below="@+id/patientname"
+            android:layout_toLeftOf="@+id/femaleradiobutton"
+            android:layout_toStartOf="@+id/femaleradiobutton"
+            android:checked="false"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="40dp"
+            android:onClick="radiobuttonclicked" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female"
+            android:textSize="20dp"
+            android:id="@+id/femaleradiobutton"
+            android:layout_below="@+id/patientname"
+            android:layout_toRightOf="@+id/patientname"
+            android:layout_toEndOf="@+id/patientname"
+            android:checked="false"
+            android:onClick="radiobuttonclicked" />
+
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/patientage"
+        android:enabled="true"
+        android:editable="true"
+        android:hint="Age"
+        android:textSize="20dp"
+        android:textColorHint="#38121212"
+        android:layout_below="@+id/savebutton"
+        android:layout_alignLeft="@+id/Date"
+        android:layout_marginTop="36dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nextbutton"
+        android:src="@drawable/rightarrow"
+        android:tintMode="src_over"
+        android:clickable="true"
+        android:onClick="nextclicked"
+        android:layout_alignTop="@+id/patientage"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:src="@drawable/bibeatlogo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/patientid" />
+
+    <TextView
+        style="@style/Base.DialogWindowTitle.AppCompat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ecg_textView"
+        android:textSize="20dp"
+        android:id="@+id/textView4"
+        android:layout_marginEnd="85dp"
+        android:layout_below="@+id/imageView3"
+        android:layout_toRightOf="@+id/savebutton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/saveExcel"
+        android:textSize="20dp"
+        android:id="@+id/savebutton"
+        android:layout_below="@+id/patientname"
+        android:layout_alignParentLeft="true"></Button>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/Date"
+        android:hint="Date (DD-MM-YY) "
+        android:textColor="#000000"
+        android:textColorHint="#38121212"
+        android:textSize="20dp"
+        android:layout_below="@+id/sextextview"
+        android:layout_alignLeft="@+id/sextextview" />
+
+</RelativeLayout>

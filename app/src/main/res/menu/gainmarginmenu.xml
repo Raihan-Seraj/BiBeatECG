@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+    <item android:id="@+id/id_5mmgain" android:title="5mm/mV"></item>
+    <item android:id="@+id/id_10mmgain" android:title="10mm/mV "></item>
+    </group>
+</menu>
