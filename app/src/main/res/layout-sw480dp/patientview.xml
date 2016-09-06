@@ -19,8 +19,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="startbuttonclicked"
-        android:layout_alignTop="@+id/selectcenterspinner"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/selectcenterspinner" />
 
     <Spinner
 
@@ -49,7 +49,7 @@
         android:enabled="true"
         android:textColor="#000000"
         android:layout_above="@+id/selectcenterspinner"
-        android:layout_toRightOf="@+id/nextleadbutton" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -70,33 +70,50 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="90dp"
+        android:layout_height="wrap_content"
         android:text="@string/combinetrace"
         android:textSize="10dp"
         android:id="@+id/combinedecgtrace"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/selectcenterspinner"
-        android:layout_alignTop="@+id/selectcenterspinner" />
+        android:layout_alignTop="@+id/selectcenterspinner"
+        android:onClick="combinedECGbuttonclicked" />
 
-    <com.androidplot.xy.XYPlot
+    <com.jjoe64.graphview.GraphView
+
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/ecggraph"
-        androidplot.rangeLabel="25mm/s"
-        androidplot.domainLabel="10mm/mv"
+        android:layout_height="127dp"
+        android:id="@+id/graphview"
         android:visibility="visible"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/combinedecgtrace"
-        android:layout_alignLeft="@+id/selectleadtextView" />
-    <com.androidplot.xy.XYPlot
+        android:layout_marginTop="44dp"
+        android:layout_alignLeft="@+id/selectcenterspinner" />
+    <com.jjoe64.graphview.GraphView
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:id="@+id/ecggraphfootprint"
         androidplot.rangeLabel="25mm/s"
         androidplot.domainLabel="10mm/mv"
         android:visibility="visible"
-        android:layout_toLeftOf="@+id/ecggraph"
-        android:layout_above="@+id/selectleadtextView" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/nextleadbutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginTop="20dp"
+        android:text="ECG Realtime"
+        android:id="@+id/realtimetext"
+        android:enabled="true"
+        android:textColor="#000000"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/graphview"
+        android:layout_marginRight="47dp" />
 
 
 </RelativeLayout>

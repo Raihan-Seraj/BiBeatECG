@@ -5,7 +5,7 @@ android {
     buildToolsVersion '23.0.2'
     defaultConfig {
         applicationId "com.bmpt.ecg.ecg"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 15
         versionCode 1
         versionName "1.0"
@@ -33,5 +33,6 @@ dependencies {
     compile 'org.processing:complete:2.2.1'
     compile files('libs/processing-android-core.jar')
     compile 'junit:junit:4.12'
-
+    compile 'com.jjoe64:graphview:4.1.0'
+    compile 'com.google.code.gson:gson-parent:2.7'
 }

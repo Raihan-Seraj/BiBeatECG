@@ -5,7 +5,8 @@
     android:layout_height="fill_parent"
     android:contextClickable="true"
     android:elevation="@dimen/abc_action_bar_content_inset_material"
-    android:backgroundTint="#fffdfd">
+    android:backgroundTint="#dddddd"
+    android:background="#dcdcdc">
 
 
     <Button
@@ -63,7 +64,7 @@
         android:onClick="nextbuttonclicked"
 
 
-        android:layout_marginStart="37dp"
+        android:layout_marginStart="3dp"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/startbutton"
         android:layout_alignTop="@+id/selectcenterspinner" />
@@ -76,27 +77,39 @@
         android:id="@+id/combinedecgtrace"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/selectcenterspinner"
-        android:layout_alignTop="@+id/selectcenterspinner" />
+        android:layout_alignTop="@+id/selectcenterspinner"
+        android:onClick="combinedECGbuttonclicked" />
 
-    <com.androidplot.xy.XYPlot
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/ecggraph"
-        androidplot.rangeLabel="25mm/s"
-        androidplot.domainLabel="10mm/mv"
-        android:visibility="visible"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/combinedecgtrace"
-        android:layout_alignLeft="@+id/selectleadtextView" />
-    <com.androidplot.xy.XYPlot
+    <com.jjoe64.graphview.GraphView
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:id="@+id/ecggraphfootprint"
+        android:layout_marginTop="2dp"
         androidplot.rangeLabel="25mm/s"
         androidplot.domainLabel="10mm/mv"
         android:visibility="visible"
-        android:layout_toLeftOf="@+id/ecggraph"
+        android:layout_toLeftOf="@+id/selectleadtextView"
         android:layout_above="@+id/selectleadtextView" />
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="wrap_content"
+        android:layout_height="107dp"
+        android:layout_marginTop="45dp"
+        android:id="@+id/graphview"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/ecggraphfootprint" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="ECG Realtime"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/realtimeecg"
+        android:layout_alignTop="@+id/ecggraphfootprint"
+        android:layout_toRightOf="@+id/selectleadtextView"
+        android:textColor="#000000" />
 
 
 </RelativeLayout>

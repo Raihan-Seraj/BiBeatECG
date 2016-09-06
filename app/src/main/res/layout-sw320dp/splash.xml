@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinnerimg"
         android:src="@drawable/spinner"
-        android:layout_marginTop="215dp"
+        android:layout_marginTop="170dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
