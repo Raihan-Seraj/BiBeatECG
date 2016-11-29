@@ -35,4 +35,6 @@ dependencies {
     compile 'junit:junit:4.12'
     compile 'com.jjoe64:graphview:4.1.0'
     compile 'com.google.code.gson:gson-parent:2.7'
+    compile 'com.android.support:design:23.1.0'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
 }

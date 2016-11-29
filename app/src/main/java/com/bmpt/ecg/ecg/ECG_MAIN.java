@@ -94,6 +94,7 @@ int k=0;
     private int canvasWidth = 960;
     private int canvasHeight = 800;private BufferedReader in = null;
     private BufferedWriter out = null;
+    private BufferedWriter interout=null;
 
     //recorddata recorddata = new recorddata();
     private volatile boolean startclicked;
@@ -603,43 +604,69 @@ isExternalStorageWritable();
 
    public void writeRecordedData()
 
-    {
-        SharedPreferences x=getSharedPreferences("PatientInfo",Context.MODE_PRIVATE);
-        id=x.getInt("id",1);
-isExternalStorageWritable();
+   {
+       SharedPreferences x = getSharedPreferences("PatientInfo", Context.MODE_PRIVATE);
+       id = x.getInt("id", 1);
+       if (isExternalStorageWritable() == true) {
 
 
-            try {
+           try {
 
 
-                    File dir = new File(
-                            root.getAbsolutePath()
-                                    + "/BiBeatECG/Data/"
-                                    + yearFolder + "/"
-                                    + monthFolder);
-                    dir.mkdirs();
-                    out = new BufferedWriter(
-                            new FileWriter(new File(dir, id
-                                    + "_" + today + ".txt")));
+               File dir = new File(
+                       root.getAbsolutePath()
+                               + "/BiBeatECG/Data/"
+                               + yearFolder + "/"
+                               + monthFolder);
+               dir.mkdirs();
+               out = new BufferedWriter(
+                       new FileWriter(new File(dir, id
+                               + "_" + today + ".txt")));
+
+
+               for (int i = 0; i < dataforsd.length; i++) {
+                   out.append(dataforsd[i] + " ");
+               }
+               out.append(";");
+               out.flush();
+
+               Toast.makeText(getBaseContext(), "File saved ", Toast.LENGTH_SHORT).show();
+
+           } catch (IOException e) {
+               // TODO Auto-generated catch block
+               e.printStackTrace();
+           }
+           // out.close();
+
+
+       } else {
+           Toast.makeText(getBaseContext(), "External Storage Not Mounted. Writing to Internal Storage instead ", Toast.LENGTH_SHORT).show();
 
 
 
-                for (int i = 0; i < dataforsd.length; i++) {
-                    out.append(dataforsd[i] + " ");
-                }
-                out.append(";");
-                out.flush();
+//If external storage is not there then the same procedure will be followed for writing files in the internal storage
+           try {
+               File myDir = new File(getCacheDir()
+                       + "/BiBeatECG/Data/"
+                       + yearFolder + "/"
+                       + monthFolder);
+               myDir.mkdir();
+               interout = new BufferedWriter(
+                       new FileWriter(new File(myDir, id + "_" + today + ".txt")));
 
-                Toast.makeText(getBaseContext(),"File saved ",Toast.LENGTH_SHORT).show();
+               for (int i = 0; i < dataforsd.length; i++) {
+                   interout.append(dataforsd[i] + " ");
+               }
+               interout.append(";");
+               interout.flush();
 
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            // out.close();
+               Toast.makeText(getBaseContext(), "File saved to internal storage ", Toast.LENGTH_SHORT).show();
 
-
-    }
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+       }
+   }
     public boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state)) {
@@ -648,6 +675,8 @@ isExternalStorageWritable();
 
         return false;
     }
+
+
 }
 
 

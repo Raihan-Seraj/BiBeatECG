@@ -2,8 +2,6 @@ package com.bmpt.ecg.ecg;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -37,7 +35,7 @@ public class splashscreen extends Activity {
 
                 iv.startAnimation(an2);
                 finish();
-                Intent i = new Intent(getBaseContext(), patientform.class);
+                Intent i = new Intent(getBaseContext(), login.class);
                 startActivity(i);
             }
 
