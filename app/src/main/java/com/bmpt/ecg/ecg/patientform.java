@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
+//import android.R;
+
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -27,6 +29,8 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 import java.util.Map;
+
+//import static processing.core.PConstants.R;
 
 
 /**
@@ -48,7 +52,7 @@ public class patientform extends Activity {
     EditText patient_age_edit_text;
     EditText patient_date_edit_text;
     String sex;
-    String create_patient_URL="http://192.168.154.12/android_connect/create_patient.php";
+    String create_patient_URL="http://192.168.0.104/android_connect/create_patient.php";
     RequestQueue requestQueue;
     ImageView nextClicked;
 
@@ -332,17 +336,20 @@ check_for_next_btn_visibility();
         age = patient_age_edit_text.getText().toString();
         if (id.matches("")) {
     //        Toast.makeText(getBaseContext(), "ID check", Toast.LENGTH_SHORT).show();
+            nextButton.setBackgroundResource(R.drawable.arrowdisable);
             nextButton.setEnabled(false);
 
 
         }
         else if (name.matches("")){
+            nextButton.setBackgroundResource(R.drawable.arrowdisable);
 
             nextButton.setEnabled(false);
   //          Toast.makeText(getBaseContext(), "Name check", Toast.LENGTH_SHORT).show();
 
         }
         else if (date.matches("")){
+            nextButton.setBackgroundResource(R.drawable.arrowdisable);
 
             nextButton.setEnabled(false);
 //            Toast.makeText(getBaseContext(), "Date check", Toast.LENGTH_SHORT).show();
@@ -350,6 +357,7 @@ check_for_next_btn_visibility();
         }
 
         else if (age.matches("")){
+            nextButton.setBackgroundResource(R.drawable.arrowdisable);
 
             nextButton.setEnabled(false);
           //  Toast.makeText(getBaseContext(), "age check", Toast.LENGTH_SHORT).show();

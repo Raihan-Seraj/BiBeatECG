@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -39,8 +38,8 @@ public class optionslist2 extends Activity {
         list.add("Generate combined ECG from existing xml file");
 
         list.add("Edit Organisation Name");
-        list.add("Edit User Id and Password");
-        list.add("Add/Delete user");
+        //list.add("Edit User Id and Password");
+       // list.add("Add/Delete user");
         list.add("Send xml by email");
         list.add("Exit");
 
@@ -86,8 +85,8 @@ public class optionslist2 extends Activity {
 
                         break;
                     case 2:
-                        //Code handling for User ID and Password
-                        setContentView(R.layout.useridpass);
+                        //Code handling for send xml by email
+                      /*  setContentView(R.layout.useridpass);
                         final EditText username=(EditText)findViewById(R.id.user_name_edit_text);
                         final EditText password=(EditText)findViewById(R.id.password_edit_text);
                         final EditText confirm=(EditText)findViewById(R.id.confirm_password_edit_text);
@@ -125,7 +124,7 @@ public class optionslist2 extends Activity {
 
                             }
 
-                        });
+                        });*/
 
                        /* final EditText name=new EditText(optionslist2.this);
                         final EditText pass=new EditText(optionslist2.this);
@@ -179,12 +178,14 @@ public class optionslist2 extends Activity {
                         break;
                     case 3:
                         ///Code handling for add/delete user
+                        finish();
                         break;
                     case 4:
-                        //Code handling for Send XML by email
+                        //Code handling for exit
+
                         break;
                     case 5:
-                        finish();
+
                         break;
 
 

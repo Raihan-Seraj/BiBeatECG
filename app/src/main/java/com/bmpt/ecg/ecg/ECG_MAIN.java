@@ -69,7 +69,7 @@ int k=0;
 
     float footprintlastXvalue=0;
     int a=0,b=0;
-    int flagInterruptTrans;
+
     private final Paint paint = new Paint();
     private final Paint paintGrid = new Paint();
     public byte[] controlOutData = new byte[]{1,0,0,0,0,0,0,0};
@@ -87,21 +87,17 @@ int k=0;
     UsbEndpoint epin;
     UsbDeviceConnection mConnection;
     private UsbManager mUsbManager;
-    int topMargin = 0;
-    int leftMargin = 0;
-    int bottomMargin = 170;
-    int intflagcontroltransfer;
-    private int canvasWidth = 960;
-    private int canvasHeight = 800;private BufferedReader in = null;
+    private BufferedReader in = null;
     private BufferedWriter out = null;
     private BufferedWriter interout=null;
 
-    //recorddata recorddata = new recorddata();
+
     private volatile boolean startclicked;
  startrecording runner1= new startrecording();
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
 
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String title;
@@ -122,7 +118,7 @@ int k=0;
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.NONE);
         graph.setBackgroundColor(Color.WHITE);
         graph.setKeepScreenOn(true);
-        //graph.getGridLabelRenderer().setNumHorizontalLabels(20);
+
         graph.getGridLabelRenderer().setNumVerticalLabels(2);
 
        Viewport viewport = graph.getViewport();
@@ -133,10 +129,9 @@ int k=0;
         ecggraphfootprint.getGridLabelRenderer().setNumHorizontalLabels(5);
         ecggraphfootprint.getGridLabelRenderer().setNumVerticalLabels(5);
         ecggraphfootprint.getGridLabelRenderer().setGridColor(Color.BLACK);
-        //ecggraphfootprint.getGridLabelRenderer().setGridStyle(Gr);
 
         Viewport ecgfootprintviewport=ecggraphfootprint.getViewport();
-        //ecgfootprintviewport.color
+
         ecgfootprintviewport.setYAxisBoundsManual(true);
         ecgfootprintviewport.setXAxisBoundsManual(true);
         ecgfootprintviewport.setMinX(0);
@@ -148,18 +143,15 @@ int k=0;
         ecggraphfootprint.getGridLabelRenderer().setHorizontalLabelsVisible(true);
         ecggraphfootprint.getGridLabelRenderer().setVerticalLabelsVisible(true);
         ecggraphfootprint.getGridLabelRenderer().setHighlightZeroLines(false);
-       // NumberFormat nf = NumberFormat.getInstance();
-        //nf.setMinimumFractionDigits(9);
-        //nf.setMinimumIntegerDigits(9);
 
-      //  ecggraphfootprint.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter(nf, nf));
 
 
         paintGrid.setColor(Color.GRAY);
         paintGrid.setStyle(Paint.Style.STROKE);
 
         mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
-USB_CONNECTION();
+        //Calling method to setup USB connection
+        USB_CONNECTION();
 
 
         final Button startbutton = (Button) findViewById(R.id.startbutton);
@@ -171,12 +163,13 @@ USB_CONNECTION();
         int item_selection;
         SharedPreferences perfs = getSharedPreferences("optionsvalue", MODE_PRIVATE);
         item_selection = perfs.getInt("value", 0);
-
+//next lead combo button
         spinner = (Spinner) findViewById(R.id.selectcenterspinner);
         adapter = ArrayAdapter.createFromResource(this, R.array.lead_choices, R.layout.spinner_layout);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        //setdevice();
+
+        // select lead
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -353,23 +346,11 @@ public void combinedECGbuttonclicked(View v){
 
             combinedecg.setEnabled(true);
 
-            // handler.
-            //SystemClock.sleep(7000);
+
 
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -391,7 +372,7 @@ public void combinedECGbuttonclicked(View v){
 
                 intf = device.getInterface(0);
                 mEndpointIntr = intf.getEndpoint(0);
-                //epin=intf.getEndpoint(1);
+
                 if (mEndpointIntr.getType() != UsbConstants.USB_ENDPOINT_XFER_INT) {
 
                     Toast.makeText(getBaseContext(), "End point is not interrupt type", Toast.LENGTH_SHORT).show();
@@ -417,14 +398,13 @@ public void combinedECGbuttonclicked(View v){
 
                 if(DeviceAttached){
 
-                   //int a=1;
+
                     controlOutData=data;
                     //Send command via control transfer to end point 0
                     mConnection = mUsbManager.openDevice(mDdevice);
                     IntClamed = mConnection.claimInterface(intf, true);
-                    //int x = mConnection.bulkTransfer(mEndpointIntr,receivedDataInt, receivedDataInt.length, 500);
+
                  int x=  mConnection.controlTransfer(0x20,0x09,0x00,0x00,controlOutData,0x08,10000);
-                   // Toast.makeText(getBaseContext(), "I The transfer is "+x/*+receivedDataInt[0]+receivedDataInt[1]+receivedDataInt[2]+receivedDataInt[3]+receivedDataInt[4]+receivedDataInt[5]+receivedDataInt[6]+receivedDataInt[7]*/, Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -446,14 +426,7 @@ class startrecording extends Thread{
        mConnection.bulkTransfer(mEndpointIntr, receivedDataInt, receivedDataInt.length, 10000);
    }
 
-                //if (receivedDataInt.length != 0)
-                   // for (int i = 0; i < 8; i++) {
-                     //   receivedData[i] = receivedDataInt[i]; //& 0xff;
 
-
-                        //receivedData[4]=7;
-
-                    //}
 
             runOnUiThread(new Runnable() {
 
@@ -527,7 +500,7 @@ if(k==8)
             }
 else if(b==4096){
                 b=0;
-                writeRecordedData();
+               // writeRecordedData();
             }
 
         }
@@ -611,6 +584,8 @@ isExternalStorageWritable();
 
 
            try {
+               Toast.makeText(getBaseContext(), "Writing to External Storage ", Toast.LENGTH_SHORT).show();
+
 
 
                File dir = new File(

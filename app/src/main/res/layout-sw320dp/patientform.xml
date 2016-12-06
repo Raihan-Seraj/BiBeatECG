@@ -119,18 +119,6 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/nextbutton"
-        android:src="@drawable/rightarrow"
-        android:tintMode="src_over"
-        android:clickable="true"
-        android:onClick="nextclicked"
-        android:layout_alignTop="@+id/patientage"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/imageView3"
         android:src="@drawable/bibeatlogo"
         android:layout_alignParentTop="true"
@@ -171,5 +159,17 @@
         android:textSize="20dp"
         android:layout_below="@+id/sextextview"
         android:layout_alignLeft="@+id/sextextview" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nextbutton"
+        android:src="@drawable/button_selector"
+
+        android:tintMode="src_over"
+        android:clickable="true"
+        android:onClick="nextclicked"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>

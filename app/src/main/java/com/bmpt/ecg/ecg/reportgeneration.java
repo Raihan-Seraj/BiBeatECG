@@ -50,8 +50,6 @@ Toolbar toolbar;
         String Pname=(pinfo.getString("name",""));
         String pid=pinfo.getString("id","");
         patientid.setText(pid);
-        patientname.setText(Pname);
-
 
         final GraphView reportlead1=(GraphView)findViewById(R.id.reportlead1);
         final GraphView reportlead2=(GraphView)findViewById(R.id.reportlead2);

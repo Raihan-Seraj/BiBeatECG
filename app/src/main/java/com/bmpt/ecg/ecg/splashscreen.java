@@ -35,7 +35,7 @@ public class splashscreen extends Activity {
 
                 iv.startAnimation(an2);
                 finish();
-                Intent i = new Intent(getBaseContext(), login.class);
+                Intent i = new Intent(getBaseContext(), patientform.class);
                 startActivity(i);
             }
 
