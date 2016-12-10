@@ -9,8 +9,16 @@ import android.widget.EditText;
  * Created by Raihan on 11/20/2016.
  */
 
+
+/**
+ * this class is used to valiadat the user in order to use the app,
+ * we perfrom an http request in the server with the login credential
+ * given by the user and check with the data that is already
+ * being stored in the database.
+ */
+
 public class login extends Activity {
-    public static final int CONNECTION_TIMEOUT=10000;
+    public static final int CONNECTION_TIMEOUT=10000;//declaring the time in milliseconds that we should keep on trying to establish the connection
     public static final int READ_TIMEOUT=15000;
     private EditText etEmail;
     private EditText etPassword;
@@ -19,7 +27,7 @@ public class login extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.login);// setting the login layout
         //Getting the reference variable
         etEmail=(EditText)findViewById(R.id.usernamelogin);
         etPassword=(EditText)findViewById(R.id.passwordlogin);
@@ -33,9 +41,10 @@ public class login extends Activity {
 
     public void onLogin(View view){
 
-        String username= etEmail.getText().toString();
-        String password=etPassword.getText().toString();
+        String username= etEmail.getText().toString(); //saving the user input email to username variable
+        String password=etPassword.getText().toString();// saving the user input password to password variable
         String type= "login";
+        // we start a background validation class, that carries out the http request and communicates with the php files stored in the server
         backgroundvalidation bckvd=new backgroundvalidation(this);
         bckvd.execute(type,username,password);
 
@@ -58,36 +67,6 @@ public class login extends Activity {
 
 
 
-
-   /* public void LoginButton() {
-        final EditText username = (EditText) findViewById(R.id.usernamelogin);
-        final EditText password = (EditText) findViewById(R.id.passwordlogin);
-
-        Button login_button = (Button) findViewById(R.id.signin_button);
-
-
-        login_button.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (username.getText().toString().equals("user")&&
-                        password.getText().toString().equals("pass")){
-                            Toast.makeText(login.this, "Username and password is correct",
-                                    Toast.LENGTH_SHORT).show();
-                            Intent j = new Intent(login.this, patientform.class);
-                            startActivity(j);
-
-                        }
-                        else{
-                            Toast.makeText(login.this, "Username and password is NOT correct",
-                                    Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                }
-        );
-
-    }*/
 
 
 

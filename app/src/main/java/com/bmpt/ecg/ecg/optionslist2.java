@@ -22,9 +22,11 @@ import java.util.List;
  * Created by Raihan on 05-Apr-16.
  */
 
-
+/**
+ * This class is sets the menu for the Options. We added a list view  containing items that performs certain tasks when clicked
+ */
 public class optionslist2 extends Activity {
-    ListView list_view1;
+    ListView list_view1;//initiating list view
     List<String> list = new ArrayList<String>();
     ArrayAdapter<String> adapter;
     private static final int REQUEST_CHOOSER = 1234;
@@ -35,16 +37,14 @@ public class optionslist2 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.optionsmenu);
         list_view1 = (ListView) findViewById(R.id.listviewoptions);
-        list.add("Generate combined ECG from existing xml file");
+        list.add("Generate combined ECG from existing xml file");// adding generate combined ECG from existing xml to the list
 
-        list.add("Edit Organisation Name");
-        //list.add("Edit User Id and Password");
-       // list.add("Add/Delete user");
-        list.add("Send xml by email");
-        list.add("Exit");
+        list.add("Edit Organisation Name");// organisation name to the list which when clicked allows the user to change the organisation name
+        list.add("Send xml by email");// sending xml file via email, allows the user to send the xml file via email
+        list.add("Exit");// exit
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, list);
-        list_view1.setAdapter(adapter);
+        list_view1.setAdapter(adapter);// setting the adapter
         list_view1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -57,30 +57,31 @@ public class optionslist2 extends Activity {
                         break;
                     case 1:
                         //Code handling for Organisation Name
-                        final EditText input = new EditText(optionslist2.this);
+                        final EditText input = new EditText(optionslist2.this);//edit text for entering organisation name
 
+                        //we define a custom layout, a popup menu that appeares asking for the new organisation name
                         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                                LinearLayout.LayoutParams.MATCH_PARENT,
-                                LinearLayout.LayoutParams.MATCH_PARENT);
+                                LinearLayout.LayoutParams.MATCH_PARENT,// layout hight
+                                LinearLayout.LayoutParams.MATCH_PARENT);// layout width
                         input.setLayoutParams(lp);
 
                         AlertDialog.Builder alertDialog = new AlertDialog.Builder(optionslist2.this);
-                        alertDialog.setTitle("Organisation Name");
-                        alertDialog.setMessage("Enter Organisation Name");
-                        alertDialog.setIcon(R.drawable.org);
-                        alertDialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                        alertDialog.setTitle("Organisation Name");// title of the popup menu
+                        alertDialog.setMessage("Enter Organisation Name");// message that will appear in the popup menu
+                        alertDialog.setIcon(R.drawable.org);// setting an icon in the title
+                        alertDialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {//button that will update the organisation name
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                SharedPreferences preferences=getSharedPreferences("Organisation_Name",Context.MODE_PRIVATE);
-                                SharedPreferences.Editor editor=preferences.edit();
-                                editor.putString("OrgName",input.getText().toString());
+                                SharedPreferences preferences=getSharedPreferences("Organisation_Name",Context.MODE_PRIVATE);//setting shared preference
+                                SharedPreferences.Editor editor=preferences.edit();// setting editor of the shared preference
+                                editor.putString("OrgName",input.getText().toString());// getting the text input from the user and saving it to the shared preference
                                 editor.commit();
-                                Toast.makeText(getBaseContext(), "Update Successful", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(optionslist2.this, ECG_MAIN.class);
-                                startActivity(i);
+                                Toast.makeText(getBaseContext(), "Update Successful", Toast.LENGTH_SHORT).show();// success message
+                                Intent i = new Intent(optionslist2.this, ECG_MAIN.class);// intent for starting ecg class
+                                startActivity(i);// starting ecg main activity, this is done so that the tile refreshes and the new name apprears
                             }
                         });
-                        alertDialog.setView(input); // uncomment this line
+                        alertDialog.setView(input); // alert dialogue is set as input type
                         alertDialog.show();
 
                         break;
